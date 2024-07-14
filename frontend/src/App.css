@@ -1,0 +1,41 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.login-section{
+  max-width: 400px;
+  margin: 100px auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  padding: 20px;
+}
+.signup-section{
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.dashboard-header{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  margin-bottom: 50px;
+}
+
+@media (max-width:600px)  {
+  .dashboard-buttons{
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+  }
+  .dashboard-buttons>button, .dashboard-buttons>div, .dashboard-buttons>div>button{
+    width: 100%;
+  }
+  
+  
+}
