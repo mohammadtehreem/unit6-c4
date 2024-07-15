@@ -23,7 +23,7 @@ export function Signup() {
 
     try {
       const response = await axios.post(
-        "https://unit6-c4.onrender.com/login",
+        "https://unit6-c4.onrender.com/signup",
         input
       );
 
