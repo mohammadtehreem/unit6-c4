@@ -16,7 +16,7 @@ userRoutes.post("/signup", async (req, res) => {
       `SELECT * FROM users WHERE email = ? or username = ?`,
       [req.body.email, req.body.username],
       (err, result) => {
-        if(err) throw err;
+        if (err) throw err;
         if (result.length == 0) {
           req.body.password = hash;
           sqlConnect.query(
@@ -29,9 +29,8 @@ userRoutes.post("/signup", async (req, res) => {
               }
             }
           );
-        }
-        else{
-            res.status(500).send("User already exits")
+        } else {
+          res.status(500).send("User already exits");
         }
       }
     );
@@ -55,8 +54,12 @@ userRoutes.post("/login", async (req, res) => {
             res.status(500);
           } else {
             if (compare) {
-              const token = jwt.sign({ username, email, role:result[0].role}, secret_key);
-                res.status(200).json({accessToken: token})
+              const token = jwt.sign(
+                { username, email, role: result[0].role },
+                secret_key
+              );
+              res.status(200).json({ accessToken: token });
+              localStorage.setItem("userEmail", JSON.stringify(email));
             } else res.send("Wrong Password");
           }
         });
